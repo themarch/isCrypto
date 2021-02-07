@@ -35,7 +35,7 @@ async function main() {
     const newTweet = await checkAndUpdate()
     if (!newTweet)
         return console.log('No new tweet')
-    tweetIsCrypto()    
+    await tweetIsCrypto()    
 }
 
 main()
