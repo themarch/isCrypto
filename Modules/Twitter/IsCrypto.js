@@ -9,7 +9,7 @@ class IsCrypto {
      * @param  {string} text
      */
     containCrypto(text) {
-        var wordMatch = []
+        let wordMatch = []
         crypto.forEach(element => {
             if (text.includes(element)) {
                 wordMatch.push(element)
@@ -21,7 +21,7 @@ class IsCrypto {
     }
 
     isBitcoin(wordMatch) {
-        var hasMatch = 0;
+        let hasMatch = 0;
         const bitcoinWord = ['btc', 'bitcoin']
         bitcoinWord.forEach(elementMatch => {
             wordMatch.forEach(elementWord => {
@@ -36,7 +36,7 @@ class IsCrypto {
     }
 
     isEthereum(wordMatch) {
-        var hasMatch = 0;
+        let hasMatch = 0;
         const ethereumWord = ['eth', 'ethereum']
         ethereumWord.forEach(elementMatch => {
             wordMatch.forEach(elementWord => {
@@ -51,7 +51,7 @@ class IsCrypto {
     }
 
     isLitecoin(wordMatch) {
-        var hasMatch = 0;
+        let hasMatch = 0;
         const litecoinWord = ['ltc', 'litecoin']
         litecoinWord.forEach(elementMatch => {
             wordMatch.forEach(elementWord => {
@@ -67,7 +67,7 @@ class IsCrypto {
     
     
     isDoge(wordMatch) {
-        var hasMatch = 0;
+        let hasMatch = 0;
         const dogeWord = ['doge', 'dogecoin']
         dogeWord.forEach(elementMatch => {
             wordMatch.forEach(elementWord => {
