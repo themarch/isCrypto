@@ -1,4 +1,4 @@
-const crypto = ['btc', 'bitcoin', 'ethereum', 'eth', 'ripple', 'litecoin', 'ltc', 'finally', 'this']
+const crypto = ['btc', 'bitcoin', 'ethereum', 'eth', 'ripple', 'litecoin', 'ltc', 'doge', 'dogecoin']
 
 class IsCrypto {
     constructor() {
@@ -22,7 +22,7 @@ class IsCrypto {
 
     isBitcoin(wordMatch) {
         var hasMatch = 0;
-        const bitcoinWord = ['btc', 'bitcoin', 'finally']
+        const bitcoinWord = ['btc', 'bitcoin']
         bitcoinWord.forEach(elementMatch => {
             wordMatch.forEach(elementWord => {
                 if (elementMatch == elementWord) {
@@ -52,8 +52,24 @@ class IsCrypto {
 
     isLitecoin(wordMatch) {
         var hasMatch = 0;
-        const litecoinWord = ['ltc', 'litecoin', 'this']
+        const litecoinWord = ['ltc', 'litecoin']
         litecoinWord.forEach(elementMatch => {
+            wordMatch.forEach(elementWord => {
+                if (elementMatch == elementWord) {
+                    hasMatch = 1;
+                }
+            })
+        })
+        if (hasMatch === 0)
+            return false
+        return true
+    }
+    
+    
+    isDoge(wordMatch) {
+        var hasMatch = 0;
+        const dogeWord = ['doge', 'dogecoin']
+        dogeWord.forEach(elementMatch => {
             wordMatch.forEach(elementWord => {
                 if (elementMatch == elementWord) {
                     hasMatch = 1;
@@ -69,10 +85,12 @@ class IsCrypto {
         const isLitecoin = this.isLitecoin(wordMatch)
         const isBitcoin = this.isBitcoin(wordMatch)
         const isEthereum = this.isEthereum(wordMatch)
+        const isDoge = this.isDoge(wordMatch)
         return {
             isLitecoin: isLitecoin,
             isBitcoin: isBitcoin,
-            isEthereum: isEthereum
+            isEthereum: isEthereum,
+            isDoge: isDoge,
         }
     }
 
