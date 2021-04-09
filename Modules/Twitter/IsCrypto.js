@@ -1,4 +1,4 @@
-const crypto = ['btc', 'bitcoin', 'ethereum', 'eth', 'ripple', 'litecoin', 'ltc', 'doge', 'dogecoin']
+const crypto = ['btc', 'bitcoin', 'ethereum', 'eth', 'ripple', 'litecoin', 'ltc', 'doge', 'dogecoin', 'orn', 'orion']
 
 class IsCrypto {
     constructor() {
@@ -80,17 +80,35 @@ class IsCrypto {
             return false
         return true
     }
+    
+    isOrn(wordMatch) {
+        let hasMatch = 0;
+        const ornWord = ['orn', 'orion']
+        ornWord.forEach(elementMatch => {
+            wordMatch.forEach(elementWord => {
+                if (elementMatch == elementWord) {
+                    hasMatch = 1;
+                }
+            })
+        })
+        if (hasMatch === 0)
+            return false
+        return true
+    }
 
     whichCrypto(wordMatch) {
         const isLitecoin = this.isLitecoin(wordMatch)
         const isBitcoin = this.isBitcoin(wordMatch)
         const isEthereum = this.isEthereum(wordMatch)
         const isDoge = this.isDoge(wordMatch)
+        const isOrn = this.isOrn(wordMatch)
+
         return {
             isLitecoin: isLitecoin,
             isBitcoin: isBitcoin,
             isEthereum: isEthereum,
             isDoge: isDoge,
+            isOrn: isOrn,
         }
     }
 
